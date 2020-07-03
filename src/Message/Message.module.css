@@ -10,6 +10,7 @@
     grid-template-rows: 1fr;
     grid-template-columns: 2fr;
 }
+
 img {
     margin: 4px;
     border-radius: 100px;
