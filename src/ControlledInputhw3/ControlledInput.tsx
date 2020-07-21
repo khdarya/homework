@@ -1,5 +1,9 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import style from './ControlledInput.module.css'
+import style from './ControlledInput.module.css';
+import UButton from "../Common/UButton";
+import UInput from "../Common/UInput";
+import styleInput from '../Common/UInput.module.css'
+
 
 export type NameType = {
     id: string
@@ -15,15 +19,17 @@ function ControlledInput(props: ControlledInputType) {
     let [userName, setUserName] = useState("");
 
     let addName = () => {
-        if (userName.length !== 0) {
+        if (userName.length !== null) {
             alert("Hello " + userName + "!");
             props.addName(userName)
             setUserName(" ");
         }
     }
+
     function onNewNameChanged(e: ChangeEvent<HTMLInputElement>) {
         setUserName(e.currentTarget.value);
     }
+
     function onNewNameKeyPressed(e: KeyboardEvent<HTMLInputElement>) {
         if (e.charCode === 13) {
             addName()
@@ -34,12 +40,13 @@ function ControlledInput(props: ControlledInputType) {
         <div>
             <div className={style.item5}>
                 <input
-                    type="text"
+                    className={styleInput.uinput}
+                    type='text'
                     value={userName}
                     onChange={onNewNameChanged}
                     onKeyPress={onNewNameKeyPressed}
                 />
-                <button onClick={addName}>+</button>
+                <UButton title={'+'} onClick={addName}/>
             </div>
             <div>
                 <ul>
@@ -57,4 +64,5 @@ function ControlledInput(props: ControlledInputType) {
         </div>
     )
 }
+
 export default ControlledInput;

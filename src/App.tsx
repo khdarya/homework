@@ -4,6 +4,9 @@ import Message from "./Message/Message";
 import Priorities from './Priorities/Priorities';
 import ControlledInput, {NameType} from "./ControlledInputhw3/ControlledInput";
 import {v1} from "uuid";
+import UButton from "./Common/UButton";
+import UInput from "./Common/UInput";
+import UCheckbox from "./Common/UCheckbox";
 
 
 export type TaskType = {
@@ -32,14 +35,15 @@ function App() {
     } else if (filter === "lowtasks") {
         tasksForTodoList = tasks.filter(t => t.priority === "low")
     }
+
     function changeFilter(newFilterValue: FilterValuesType) {
         setFilter(newFilterValue)
     }
+
     function removeTask(taskId: number) {
         let filteredTasks = tasks.filter((t) => t.id !== taskId)
         setTasks(filteredTasks)
     }
-
 
 
     let [names, setNames] = useState<Array<NameType>>([]);
@@ -67,6 +71,11 @@ function App() {
                     names={names}
                     addName={addName}
                 />
+            </div>
+            <div>
+                <UInput/>
+                <UCheckbox/>
+                <UButton title={"Button"} onClick={() => alert("Button alert")}/>
             </div>
         </div>
     );

@@ -1,6 +1,8 @@
 import React from 'react';
 import {FilterValuesType, TaskType} from "../App";
 import style from './Priorities.module.css';
+import UButton from "../Common/UButton";
+
 
 type PrioritiesType = {
     title: string
