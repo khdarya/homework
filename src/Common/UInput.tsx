@@ -1,16 +1,24 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styleInput from './UInput.module.css';
 
-/*export type UInputType = {
-    type: string
-    value: string
-    onChange: (text: string) => void
-    onKeyPress: (text: string) => void
-}*/
 
-function UInput() {
+
+export type UInputPropsType = {
+    value?: string
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void
+    onKeyPress?: (event: KeyboardEvent<HTMLInputElement>) => void
+
+}
+
+function UInput(props:UInputPropsType) {
+
+
     return <div>
         <input className={styleInput.uinput}
+               type='text'
+               value={props.value}
+               onChange={props.onChange}
+               onKeyPress={props.onKeyPress}
         />
     </div>
 }
