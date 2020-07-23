@@ -4,7 +4,7 @@ import style from './UButton.module.css';
 
 export type UButtonType = {
     title: string
-    onClick: () => void
+    onClick?: () => void
 }
 
 function UButton(props: UButtonType) {

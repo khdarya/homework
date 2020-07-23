@@ -1,6 +1,5 @@
-import React, {ChangeEvent, KeyboardEvent} from 'react';
+import React, {ChangeEvent, CSSProperties, KeyboardEvent} from 'react';
 import styleInput from './UInput.module.css';
-
 
 
 export type UInputPropsType = {
@@ -10,11 +9,12 @@ export type UInputPropsType = {
 
 }
 
-function UInput(props:UInputPropsType) {
+function UInput(props: UInputPropsType) {
 
 
     return <div>
-        <input className={styleInput.uinput}
+        <input
+               className={styleInput.uinput}
                type='text'
                value={props.value}
                onChange={props.onChange}

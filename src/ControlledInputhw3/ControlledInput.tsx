@@ -15,15 +15,14 @@ export type ControlledInputType = {
 }
 
 function ControlledInput(props: ControlledInputType) {
-
     let [userName, setUserName] = useState("");
-
     let addName = () => {
-        if (userName.length !== null) {
-            alert("Hello " + userName + "!");
+
+        if (userName !== null && userName !== "") {
+            alert("Hello " + userName);
+        }
             props.addName(userName)
             setUserName(" ");
-        }
     }
 
     function onNewNameChanged(e: ChangeEvent<HTMLInputElement>) {
@@ -57,9 +56,9 @@ function ControlledInput(props: ControlledInputType) {
                             </li>
                         )
                     })}
-
                 </ul>
-                <div>counter: {props.names.length}</div>
+
+                <div> counter: {props.names.length}</div>
             </div>
         </div>
     )
