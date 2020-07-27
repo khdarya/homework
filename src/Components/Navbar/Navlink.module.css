@@ -1,0 +1,30 @@
+.mainNav {
+
+    margin-left: 30px;
+    margin-top: 20px;
+    position: relative;
+    background-color: #3CBC8D;
+    width: 100px;
+    text-align: center;
+}
+
+.mainNav:hover .list {
+display: block;
+}
+
+.list {
+    position: relative;
+    display: none;
+    top: 5px;
+    padding: 5px 0px 0px 0px;
+    background-color: white;
+    text-align: left;
+}
+
+.navlink {
+    text-decoration: none;
+    left: 0;
+    color: black;
+
+}
+

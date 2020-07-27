@@ -1,7 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import style from './ControlledInput.module.css';
 import UButton from "../Common/UButton";
-import UInput from "../Common/UInput";
 import styleInput from '../Common/UInput.module.css'
 
 
@@ -17,12 +16,8 @@ export type ControlledInputType = {
 function ControlledInput(props: ControlledInputType) {
     let [userName, setUserName] = useState("");
     let addName = () => {
-
-        if (userName !== null && userName !== "") {
-            alert("Hello " + userName);
-        }
-            props.addName(userName)
-            setUserName(" ");
+        props.addName(userName)
+        setUserName("");
     }
 
     function onNewNameChanged(e: ChangeEvent<HTMLInputElement>) {

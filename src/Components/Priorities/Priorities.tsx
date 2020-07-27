@@ -1,5 +1,5 @@
 import React from 'react';
-import {FilterValuesType, TaskType} from "../App";
+import {FilterValuesType, TaskType} from "../PreJunior";
 import style from './Priorities.module.css';
 import UButton from "../Common/UButton";
 

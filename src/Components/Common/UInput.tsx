@@ -1,4 +1,4 @@
-import React, {ChangeEvent, CSSProperties, KeyboardEvent} from 'react';
+import React, {ChangeEvent, KeyboardEvent} from 'react';
 import styleInput from './UInput.module.css';
 
 
