@@ -13,18 +13,38 @@ export type ControlledInputType = {
     addName: (newUserName: string) => void
 }
 
+
 function ControlledInput(props: ControlledInputType) {
+
     let [userName, setUserName] = useState("");
-    let addName = () => {
-        props.addName(userName)
-        setUserName("");
+    const [error, setError] = useState<string | null>(null);
+
+    const addName = () => {
+        if (userName.trim() !== "") {
+
+            /*alert(props.addName(userName.trim())); */ //undefined
+
+            alert(`hello ${userName}`)
+            props.addName(userName.trim())
+            setUserName("");
+        } else {
+            setError("Field is required")
+        }
     }
 
+    /*  let addName = () => {
+          props.addName(userName)
+          setUserName("");
+      }
+  */
     function onNewNameChanged(e: ChangeEvent<HTMLInputElement>) {
         setUserName(e.currentTarget.value);
     }
 
     function onNewNameKeyPressed(e: KeyboardEvent<HTMLInputElement>) {
+
+        setError(null);
+
         if (e.charCode === 13) {
             addName()
         }
@@ -34,13 +54,16 @@ function ControlledInput(props: ControlledInputType) {
         <div>
             <div className={style.item5}>
                 <input
-                    className={styleInput.uinput}
+                    className = {error ? styleInput.error : styleInput.uinput}
+                  /*  className={styleInput.uinput}*/
                     type='text'
                     value={userName}
                     onChange={onNewNameChanged}
                     onKeyPress={onNewNameKeyPressed}
                 />
+                {error && <div className="error-message"> {error} </div>}
                 <UButton title={'+'} onClick={addName}/>
+
             </div>
             <div>
                 <ul>

@@ -49,11 +49,7 @@ const PreJunior = () => {
     function addName(newUserName: string) {
         let newName = {id: v1(), name: newUserName};
         let newNames = [newName, ...names];
-        if (newName.name && newName.name !== " ") {
-            alert (`Hello ${newName.name}`)
             setNames(newNames);
-        }
-
     }
 
     let [checked, setChecked] = useState<boolean>(false);
@@ -61,16 +57,13 @@ const PreJunior = () => {
     return (
         <div className={style.preJunior}>
             <Message name="Dima" usertext="Hi, how are you?" time="20:00"/>
-
             <Priorities title="My Tasks"
                         tasks={tasksForTodoList}
                         removeTask={removeTask}
                         changeFilter={changeFilter}/>
-
             <ControlledInput
                 names={names}
                 addName={addName}/>
-
             <CommonFileUComponents checked={checked} onChange={setChecked} title={"Button"}/>
         </div>
     )

@@ -6,6 +6,8 @@ export type UInputPropsType = {
     value?: string
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void
     onKeyPress?: (event: KeyboardEvent<HTMLInputElement>) => void
+    onBlur?: () => void
+    autoFocus?: boolean
 
 }
 
@@ -19,6 +21,9 @@ function UInput(props: UInputPropsType) {
                value={props.value}
                onChange={props.onChange}
                onKeyPress={props.onKeyPress}
+               onBlur={props.onBlur}
+               autoFocus={props.autoFocus}
+
         />
     </div>
 }
